@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/header.ejs') %>
+        <title>
+            <%= pageTitle || "Admin Dashboard" %>
+        </title>
+</head>
+
+<body>
+    <%- include('./partials/navbar.ejs') %>
+
+        <%- include('./partials/sidemenu.ejs') %>
+
+            <div class="container w-50" style="margin-left: 280px; margin-top: 100px;">
+                <div class="container mt-4">
+                    <%- include(viewPath) %>
+                </div>
+            </div>
+
+
+            <%- include('./partials/scripts.ejs') %>
+
+                <script>
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        if (link.href === window.location.href) {
+                            link.classList.add('active');
+                        }
+                    });
+                    document.getElementById('toggleSidebarBtn').addEventListener('click', function () {
+                        const sidebar = document.getElementById('sidebar');
+                        sidebar.classList.toggle('d-none');
+                    });
+                </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<h1 class="text-center mb-4">Blogs Management</h1>
+
+
+<table class="table table-striped table-hover align-middle border rounded shadow-sm">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col" class="px-3">Title</th>
+            <th scope="col" class="text-center px-3">Actions</th>
+            <th scope="col" class="text-center px-3">Update</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <% blogs.forEach((blog) => { %>
+            <tr>
+                <td class="px-3">
+                    <%= blog.title %>
+                </td>
+                <td class="text-center px-3">
+                    <a href="/blogs/<%= blog._id %>" class="btn btn-primary btn-sm">View</a>
+                    <form action="/admin/blogs/delete/<%= blog._id %>" method="POST" style="display: inline;">
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                </td>
+                <td class="text-center px-3">
+                    <form action="/admin/blogs/modify/<%= blog._id %>" method="PUT" style="display: inline;">
+                        <button type="submit" class="btn btn-warning btn-sm">Update</button>
+                    </form>
+                </td>
+            </tr>
+        <% }) %>
+    </tbody>
+</table>
+

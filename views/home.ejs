@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/header.ejs') %>
+        <title>Home Page</title>
+</head>
+
+<body>
+    <%- include('./partials/navbar.ejs') %>
+
+        <%- include('./partials/sidemenu.ejs') %>
+
+            <div class="content paddings" style="margin-left: 0; margin-top: 100px;">
+                <div class="container mt-3 w-100 d-flex flex-row flex-wrap gap-3">
+                    <% blogs.forEach((blog)=> { %>
+                        <div class="card" style="width: 18rem; height: 22rem;">
+                            <img class="card-img-top p-3" height="50%" src="<%= blog.thumbnailImage %>"
+                                alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <%= blog.title %>
+                                </h5>
+                                <p class="card-text">
+                                    Category: <%= blog.category %>
+                                </p>
+                                <a href="/blogs/<%= blog._id %>" class="btn btn-primary">View</a>
+                            </div>
+                        </div>
+                        <% }); %>
+                </div>
+            </div>
+
+            <%- include('./partials/scripts.ejs') %>
+
+                <script>
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.addEventListener('click', () => {
+                            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                            link.classList.add('active');
+                        });
+                    });
+                </script>
+</body>
+
+</html>

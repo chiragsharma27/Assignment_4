@@ -1,0 +1,32 @@
+<% if (user && user.role==="admin" ) { %>
+    <div class="d-flex flex-column  text-white" id="sidebar"
+        style="position: fixed; top: 56px; height: 100%; width: 280px; padding: 15px; background-color: #2c3e50;">
+
+        <ul class="nav nav-pills flex-column mb-auto" style="list-style: none; padding: 0;">
+            <li class="nav-item">
+                <a href="/admin/blogs" class="nav-link text-white d-flex align-items-center gap-2" id="all-blogs-link">
+                    <i class="fas fa-blog"></i> Blogs
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/admin/blogs/add" class="nav-link text-white d-flex align-items-center gap-2"
+                    id="add-blog-link">
+                    <i class="fas fa-plus-circle"></i> Add Blog
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/admin/categories" class="nav-link text-white d-flex align-items-center gap-2"
+                    id="all-categories-link">
+                    <i class="fas fa-th-list"></i> Categories
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/admin/categories/add" class="nav-link text-white d-flex align-items-center gap-2"
+                    id="add-category-link">
+                    <i class="fas fa-folder-plus"></i> Add Category
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    <% } %>
